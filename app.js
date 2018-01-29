@@ -1,15 +1,13 @@
-const http = require('http'); //require is same as include
+const express = require('express'); // just like an include or require with PHP
+const app = express(); // create an instance of our application via simpleExpress
 
-const hostname = '127.0.0.1';
-const port = process.env.PORT || 3000;
-const user = process.env.USER;
+app.use(express.static('public'));
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+//set up routes
+app.use(require('./routes/index'));
+app.use(require('./routes/contact'));
+app.use(require('./routes/users'));
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/Logged in as ${user}`);
+app.listen(3000, () => {
+  console.log('listening on port 3000!');
 });
