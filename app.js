@@ -17,10 +17,19 @@ io.attach(server);
 
 io.on('connection', (socket) => {
   console.log('a user has connected!');
-  // io.emit('connectMsg', { for: 'everyone', msg : `${socket.id}` is here!});
+  io.emit('chat message', { for: 'everyone', msg : `${socket.id} is here!`});
+  //'chat message' is the message that io. emits from the server, we listen for this event with js so we can do something with it
 
-  socket.on('disconnect', () => {
-    console.log('a user has disconnected!');
+  //handle message sent from the client
+  socket.on('chat message', msg => {
+    io.emit('chat message', { for: 'everyone', msg})
   });
+
+  socket.on('disconnect', (socket) => {
+    console.log('a user has disconnected!');
+
+    io.emit('disconnect message', `${socket.id} has left the building!`);
+  });
+
 
 });
