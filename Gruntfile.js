@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         // },
 
         sass: {
-          files: ['sass/main.scss'],
+          files: ['sass/*.scss'],
           tasks: ['sass']
         }
       },

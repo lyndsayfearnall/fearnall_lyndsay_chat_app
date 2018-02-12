@@ -14,9 +14,7 @@
 
   function handleSendMessage(e){
     e.preventDefault(); //prevents default (page reload)
-    //debugger;
-    nickName = (nickName && nickName.length > 0) ? nickName : 'user'; //checking if variable exists, and if it has something inside it... then it evaluates to true
-
+    nickName = (nickName && nickName.length > 0) ? nickName : 'user'; // ? is ternary operator, checking if variable exists and if it has something inside it... then it evaluates to true OR if false, nickName = 'user'
     msg = `${nickName} says ${chatMessage.value}`;
 
     socket.emit('chat message', msg);
@@ -24,13 +22,13 @@
     return false;
   }
 
-  function appendMessage(msg){
+  function appendMessage(msg){ //prints new chat message onto page
     //debugger;
     let newMsg = `<li>${msg.msg}</li>`;
     messageList.innerHTML += newMsg;
   }
 
-  function appendDMessage(msg){
+  function appendDMessage(msg){ //prints user disconnect message onto page
     //debugger;
     let newMsg = `<li>${msg}</li>`;
     messageList.innerHTML += newMsg;

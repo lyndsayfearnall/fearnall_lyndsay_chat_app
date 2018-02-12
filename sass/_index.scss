@@ -1,0 +1,54 @@
+body{
+  background-color: $grey;
+}
+//main nav
+#mainNav {
+  background-color: $dark-grey;
+  color: white;
+}
+
+#title{
+  margin: 10px 0px 10px 0px;
+  font-size: 20px;
+}
+
+//chat form
+form {
+	background: $dark-grey;
+	padding: 3px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+
+	input {
+		border: 0;
+		padding: 10px;
+		width: 90%;
+		margin-right: 0.5%;
+	 }
+
+	button {
+    width: 9%;
+    background: $orange;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+}
+
+//message board
+
+#messages {
+	list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+	li {
+    padding: 5px 10px;
+  }
+	li:nth-child(odd) {
+    background: #eee;
+  }
+}

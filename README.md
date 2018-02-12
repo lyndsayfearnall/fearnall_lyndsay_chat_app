@@ -6,7 +6,7 @@ This is the Express version; the core Node version can be found on the [node.js 
 ## Requirements / Getting Set Up
 Node, NPM and Express
 
-1. Clone into the directory of your choice
-2. NPM install to grab dependencies
-3. run node app on using Terminal in the root of your project
-4. navigate to localhost:3000 and you should be good to go
+1. Clone project into a directory
+2. Run NPM install to get all dependencies
+3. Navigate to root of project and run node app
+4. Navigate to localhost:3000 
