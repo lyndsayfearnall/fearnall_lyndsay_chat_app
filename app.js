@@ -16,12 +16,13 @@ const server = app.listen(3000, () => {
   console.log('listening on port 3000!');
 });
 
+
 //set up socket on the server
 io.attach(server);
 
 //listens for a connection, then fires function
 io.on('connection', (socket) => { //socket refers to individual client making connection with server
-  console.log('a user has connected!');
+  console.log(`${socket.id} has connected!`);
   io.emit('chat message', { for: 'everyone', msg : `${socket.id} is here!`});
   //'chat message' is the message that io. emits from the server, we listen for this event with js so we can do something with it
 
@@ -30,10 +31,15 @@ io.on('connection', (socket) => { //socket refers to individual client making co
     io.emit('chat message', { for: 'everyone', msg})
   });
 
-  socket.on('disconnect', (socket) => {
-    console.log('a user has disconnected!');
+  // socket.on('typing', (socket) =>{
+  //   socket.broadcast.emit('typing')
+  // });
 
-    io.emit('disconnect message', `${socket.id} has left the building!`);
+  socket.on('disconnect', (socket) => {
+    console.log(`${socket.id} has disconnected!`);
+
+    io.emit('disconnect message', `has left the building!`);
+  
   });
 
 

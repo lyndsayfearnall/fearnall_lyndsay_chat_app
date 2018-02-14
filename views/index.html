@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Socket IO Chat with Node!</title>
+	<title>Socket IO Chat</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/main.css">
 </head>
@@ -16,24 +16,30 @@
 	</nav>
 <!--Main chat area-->
 	<div class="container">
-		<div class="row">
-			<div class="col-">
-				<input type="text" class="nickname" placeholder="What is your nickname?">
+		<div class="row" id="nickname">
+			<div class="col-12 form-group">
+				<label for="nicknameField">Enter your nickname to start chatting:</label><br>
+				<input type="text" class="nickname form-control" id="nicknameField" placeholder="Nickname">
+				<button type="submit" class="btn" id="go">Let's Go!</button>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-">
+
+		<div class="row hideChat" id="messageBoard">
+			<div class="col-12" id="allMessages">
 				<ul id="messages"></ul>
+				<div class="feedback"></div>
 			</div>
 		</div>
 	</div>
 	<!--Chat message area-->
-	<div class="container-fluid">
+	<div class="container-fluid hideChat" id="chatbox">
 		<div class="row">
-				<form class="col-">
-					<input class="message" type="text" id="m" autocomplete="off">
-					<button>send</button>
-				</form>
+				<div class="col-">
+					<form>
+						<input class="message" type="text" id="m" autocomplete="off" placeholder="Your message goes here">
+						<button class="btn">send</button>
+					</form>
+			</div>
 		</div>
 	</div>
 
